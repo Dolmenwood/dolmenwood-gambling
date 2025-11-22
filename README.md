@@ -2,7 +2,7 @@
 
 A mobile-friendly, browser-based implementation of tavern gambling rules inspired by the Dolmenwood TTRPG setting.
 
-
+https://dolmenwood.github.io/dolmenwood-gambling/
 
 ## Features
 
@@ -45,4 +45,5 @@ You can host this for free so you can access it on your phone anywhere.
 ### Step 4: Access the Game
 1.  Wait about 1-2 minutes. Refresh the Settings > Pages page.
 2.  A bar will appear at the top saying: "Your site is live at..."
+
 3.  Click that URL to play the game on any device!
