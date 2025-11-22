@@ -114,13 +114,25 @@ h2 {
 }
 
 /* --- BUTTONS & NAV --- */
+
+/* Shared structure for all button groups */
 .main-menu, .cheat-options, .action-area {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
+}
+
+/* Keep Cheat Options and Result Actions centered vertically */
+.cheat-options, .action-area {
     margin-top: auto;
     margin-bottom: auto;
+}
+
+/* SPECIFIC CHANGE: Move Home Menu buttons up */
+.main-menu {
+    margin-top: 20px;    /* Small gap between text and buttons */
+    margin-bottom: auto; /* Pushes any empty space to the bottom */
 }
 
 button {
