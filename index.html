@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Dolmenwood Gambling Tables</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="app">
+        <div class="background-art" aria-hidden="true">
+            </div>
+
+        <section id="screen-home" class="screen active">
+            <header>
+                <h1>Dolmenwood Gambling Tables</h1>
+                <p class="flavor-text">
+                    The tavern hums with the low bleating of Breggles and the clinking of mugs. 
+                    A goat-headed stranger gestures to the dice...
+                </p>
+            </header>
+            
+            <nav class="main-menu">
+                <button class="btn btn-nocheat" onclick="startNoCheat()">No Cheat</button>
+                <button class="btn btn-cheat" onclick="startCheat()">Cheat</button>
+                <button class="btn btn-rules" onclick="showRules()">Rules</button>
+            </nav>
+        </section>
+
+        <section id="screen-rules" class="screen">
+            <h2>House Rules</h2>
+            <div class="scroll-content">
+                <h3>The Flow</h3>
+                <p><strong>1. Cheating (Optional):</strong> Attempt to influence the dice. High risk, high reward.</p>
+                <p><strong>2. Gambling:</strong> The main roll. Determines if you win or lose your stake.</p>
+                <p><strong>3. Complication:</strong> If you win, you might attract unwanted attention from the Thieves' Guild or jealous rivals.</p>
+
+                <h3>Cheating Table (2d6 + Mod)</h3>
+                <ul>
+                    <li><strong>2 or less:</strong> Caught! Heavy penalty.</li>
+                    <li><strong>3–5:</strong> Suspected. Small penalty.</li>
+                    <li><strong>6–8:</strong> Unnoticed. No bonus.</li>
+                    <li><strong>9–11:</strong> Effective. +2 to Gambling.</li>
+                    <li><strong>12+:</strong> Very Effective. +4 to Gambling.</li>
+                </ul>
+
+                <h3>Gambling Table (2d6 + Bonus)</h3>
+                <ul>
+                    <li><strong>2–5:</strong> Loss.</li>
+                    <li><strong>6–8:</strong> Break even.</li>
+                    <li><strong>9–11:</strong> 2× Win (Triggers Complication).</li>
+                    <li><strong>12+:</strong> 10× Win (Triggers Complication).</li>
+                </ul>
+
+                <h3>Complication Table (1d6 + Mods)</h3>
+                <ul>
+                    <li><strong>1 or less:</strong> The Guild takes notice (Bad).</li>
+                    <li><strong>2–4:</strong> Hostility and Reputation damage.</li>
+                    <li><strong>5+:</strong> Safe... for tonight.</li>
+                </ul>
+            </div>
+            <button class="btn btn-secondary" onclick="goHome()">Return Home</button>
+        </section>
+
+        <section id="screen-cheat-select" class="screen">
+            <h2>Choose Your Cheating Modifier</h2>
+            <p class="subtitle">How clever – or reckless – is your cheat?</p>
+            
+            <div class="cheat-options">
+                <button class="btn btn-cheat-opt" onclick="runCheatPhase(-2)">–2 (Desperate)</button>
+                <button class="btn btn-cheat-opt" onclick="runCheatPhase(-1)">–1 (Sloppy)</button>
+                <button class="btn btn-cheat-opt" onclick="runCheatPhase(0)">0 (Risky)</button>
+                <button class="btn btn-cheat-opt" onclick="runCheatPhase(1)">+1 (Practiced)</button>
+                <button class="btn btn-cheat-opt" onclick="runCheatPhase(2)">+2 (Clever)</button>
+            </div>
+            <button class="btn btn-text-only" onclick="goHome()">Cancel</button>
+        </section>
+
+        <section id="screen-result" class="screen">
+            <h2 id="result-title">Result</h2>
+            
+            <div class="math-strip">
+                <div class="die-box" id="die-1">-</div>
+                <span class="math-symbol">+</span>
+                <div class="die-box" id="die-2">-</div> <span class="math-symbol">+</span>
+                <div class="modifier-badge" id="result-mod">0</div>
+                <span class="math-symbol">=</span>
+                <span class="final-total" id="result-total">0</span>
+            </div>
+
+            <p class="capped-text" id="result-capped-text">Capped to range: 0</p>
+
+            <div class="outcome-box">
+                <p id="outcome-text">Result description goes here.</p>
+            </div>
+
+            <div id="result-actions" class="action-area">
+                </div>
+        </section>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+:root {
+    --bg-color: #1a1613;
+    --text-color: #f5e6d3;
+    --accent-amber: #d4af37;
+    --accent-red: #8a3324;
+    --accent-green: #4a5d23;
+    --card-bg: #2e2620;
+    --font-main: 'Georgia', 'Times New Roman', serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    /* Prevent double-tap zoom on mobile */
+    touch-action: manipulation;
+}
+
+#app {
+    width: 100%;
+    max-width: 500px; /* Phone width constraint */
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Placeholder */
+.background-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    /* Placeholder gradient - replace with image url later */
+    background: radial-gradient(circle at center, #4a3b32 0%, #0f0c0a 100%);
+}
+
+/* Screen Management */
+.screen {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.3s ease-in-out;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography */
+h1 {
+    font-size: 1.8rem;
+    color: var(--accent-amber);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #3d3128;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: var(--accent-amber);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #a89f91;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.flavor-text {
+    font-style: italic;
+    color: #c0b2a0;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Navigation & Buttons */
+.main-menu, .cheat-options, .action-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+button {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.1s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: white;
+    text-transform: uppercase;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+}
+
+.btn-nocheat { background-color: var(--accent-green); }
+.btn-cheat { background-color: var(--accent-red); }
+.btn-rules { background-color: #6b563f; }
+.btn-cheat-opt { background-color: #4a3b32; border: 1px solid #6b563f; }
+.btn-secondary { background-color: #3d3128; margin-top: 20px; width: 100%; }
+.btn-primary { background-color: var(--accent-amber); color: #1a1613; width: 100%; }
+.btn-text-only { background: none; box-shadow: none; color: #888; text-decoration: underline; margin-top: 10px;}
+
+/* Scrollable Rules */
+.scroll-content {
+    text-align: left;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3d3128;
+}
+.scroll-content h3 { color: #dcdcdc; margin-top: 15px; border-bottom: 1px solid #444; }
+.scroll-content ul { margin-left: 20px; margin-bottom: 10px; line-height: 1.4; }
+.scroll-content li { margin-bottom: 5px; }
+
+/* Math Strip & Dice */
+.math-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    background: #241e19;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #3d3128;
+}
+
+.die-box {
+    width: 40px;
+    height: 40px;
+    background: #e8dcc5;
+    color: #1a1613;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.modifier-badge {
+    padding: 5px 10px;
+    background: #3d3128;
+    border-radius: 4px;
+    color: var(--accent-amber);
+    font-weight: bold;
+}
+
+.final-total {
+    font-size: 1.5rem;
+    color: var(--accent-amber);
+    font-weight: bold;
+}
+
+.capped-text {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.outcome-box {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-amber);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
